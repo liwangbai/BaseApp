@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "${project.rootDir}/dependConfig.gradle"
+apply from: "${project.rootDir}/generalConfig.gradle"
+
+android {
+    namespace 'com.wpy.core'
+}
+
+dependencies {
+    // 引用其他组件 -- 此行勿动 --
+    implementation project(':basicLib:arouter')
+    implementation project(':basicLib:utils')
+
+    // 官方库 -- 此行勿动 --
+    api "${officialDependence.appcompat}"
+    api "${officialDependence.core_ktx}"
+    api "${officialDependence.material}"
+    api "${officialDependence.activity_ktx}"
+    api "${officialDependence.fragment_ktx}"
+    api "${officialDependence.lifecycle}"
+    api "${officialDependence.coroutines_core}"
+    api "${officialDependence.coroutines_android}"
+    api "${officialDependence.flexboxVersion}"
+    api "${officialDependence.databinding}"
+
+    // 三方库 -- 此行勿动 --
+
+    // 引用单元测试依赖（需要在设备上跑的单元测试代码必须用androidTestImplementation引入） -- 此行勿动 --
+    testImplementation "${officialDependence.junit}"
+    androidTestImplementation "${officialDependence.testJunit}"
+    androidTestImplementation "${officialDependence.espresso}"
+}
+

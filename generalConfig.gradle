@@ -1,0 +1,58 @@
+apply from: "${project.rootDir}/dependConfig.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+
+// android 通用配置
+android {
+    compileSdkVersion COMPILE_SDK.toInteger()
+
+    // 友盟聚合分享需要使用 HttpClient，Android 9.0 API 28 必须设置此兼容项
+    useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        minSdkVersion MIN_SDK.toInteger()
+        targetSdkVersion TARGET_SDK.toInteger()
+        versionCode ICE_CREAM_VERSION_CODE.toInteger()
+        versionName ICE_CREAM_VERSION_NAME
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "DEBUG", "false"
+        }
+        debug {
+            buildConfigField "boolean", "DEBUG", "true"
+        }
+    }
+
+    lintOptions {
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+// 通用依赖
+dependencies {
+    testImplementation "${officialDependence.junit}"
+    androidTestImplementation "${officialDependence.testJunit}"
+    androidTestImplementation "${officialDependence.espresso}"
+}
+

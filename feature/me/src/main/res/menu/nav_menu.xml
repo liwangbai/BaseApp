@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"> <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/navAdd" android:icon="@mipmap/add_friend" android:title="发现好友" />
+    <item
+        android:id="@+id/navRecord" android:icon="@mipmap/add_friend" android:title="浏览记录" />
+    <item
+        android:id="@+id/nav3" android:icon="@mipmap/add_friend" android:title="menu3" />
+    <item
+        android:id="@+id/nav4" android:icon="@mipmap/add_friend" android:title="menu4" />
+    <item
+        android:id="@+id/nav5" android:icon="@mipmap/add_friend" android:title="menu5" />
+</group>
+</menu>

@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "${project.rootDir}/dependConfig.gradle"
+apply from: "${project.rootDir}/generalConfig.gradle"
+
+android {
+    namespace 'com.wpy.home'
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+}
+
+dependencies {
+    // 引用其他组件 -- 此行勿动 --
+    implementation project(':basicLib:core')
+    implementation project(':basicLib:utils')
+    implementation project(':IProvider')
+    implementation project(':basicLib:arouter')
+
+    implementation project(':basicLib:ui')
+
+    // 官方库 -- 此行勿动 --
+
+    // 三方库 -- 此行勿动 --
+    kapt "${thirdPartyDependence.arouter_compiler}"
+
+    implementation "${thirdPartyDependence.coil}"
+    implementation "${thirdPartyDependence.circleimageview}"
+    implementation  'io.github.scwang90:refresh-layout-kernel:2.1.0'      //核心必须依赖
+    implementation  'io.github.scwang90:refresh-header-classics:2.1.0'    //经典刷新头
+    implementation  'io.github.scwang90:refresh-header-radar:2.1.0'       //雷达刷新头
+    implementation  'io.github.scwang90:refresh-header-falsify:2.1.0'     //虚拟刷新头
+    implementation  'io.github.scwang90:refresh-header-material:2.1.0'    //谷歌刷新头
+    implementation  'io.github.scwang90:refresh-header-two-level:2.1.0'   //二级刷新头
+    implementation  'io.github.scwang90:refresh-footer-ball:2.1.0'        //球脉冲加载
+    implementation  'io.github.scwang90:refresh-footer-classics:2.1.0'    //经典加载
+
+    // 引用单元测试依赖（需要在设备上跑的单元测试代码必须用androidTestImplementation引入） -- 此行勿动 --
+    testImplementation "${officialDependence.junit}"
+    androidTestImplementation "${officialDependence.testJunit}"
+    androidTestImplementation "${officialDependence.espresso}"
+}

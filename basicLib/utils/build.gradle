@@ -1,0 +1,29 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "${project.rootDir}/dependConfig.gradle"
+apply from: "${project.rootDir}/generalConfig.gradle"
+
+android {
+    namespace 'com.wpy.utils'
+}
+
+dependencies {
+    // 引用其他组件 -- 此行勿动 --
+
+    // 官方库 -- 此行勿动 --
+    implementation "${officialDependence.appcompat}"
+    implementation "${officialDependence.core_ktx}"
+    implementation "${officialDependence.material}"
+
+    // 三方库 -- 此行勿动 --
+    implementation "${thirdPartyDependence.moshi}"
+    implementation "${thirdPartyDependence.retrofitGson}"
+
+    // 引用单元测试依赖（需要在设备上跑的单元测试代码必须用androidTestImplementation引入） -- 此行勿动 --
+    testImplementation "${officialDependence.junit}"
+    androidTestImplementation "${officialDependence.testJunit}"
+    androidTestImplementation "${officialDependence.espresso}"
+}

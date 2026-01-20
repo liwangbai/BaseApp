@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BaseApp</string>
+
+    <string name="img_desc1">BaseApp</string>
+
+    <string name="home_tab1">首页</string>
+    <string name="home_tab2">tab2</string>
+    <string name="home_tab3">tab3</string>
+    <string name="home_tab4">我</string>
+
+</resources>

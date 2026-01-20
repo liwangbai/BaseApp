@@ -1,0 +1,38 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "${project.rootDir}/dependConfig.gradle"
+apply from: "${project.rootDir}/generalConfig.gradle"
+
+android {
+    namespace 'com.wpy.ui'
+    defaultConfig {
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+}
+
+dependencies {
+    // 引用其他组件 -- 此行勿动 --
+    implementation project(':basicLib:utils')
+    implementation project(':basicLib:arouter')
+
+    // 官方库 -- 此行勿动 --
+    implementation "${officialDependence.appcompat}"
+    implementation "${officialDependence.core_ktx}"
+    implementation "${officialDependence.material}"
+
+    // 三方库 -- 此行勿动 --
+    annotationProcessor "${thirdPartyDependence.arouter_compiler}"
+    implementation "${thirdPartyDependence.circleimageview}"
+
+    // 引用单元测试依赖（需要在设备上跑的单元测试代码必须用androidTestImplementation引入） -- 此行勿动 --
+    testImplementation "${officialDependence.junit}"
+    androidTestImplementation "${officialDependence.testJunit}"
+    androidTestImplementation "${officialDependence.espresso}"
+}

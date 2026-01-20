@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+    // id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.kapt'
+}
+
+apply from: "${project.rootDir}/dependConfig.gradle"
+apply from: "${project.rootDir}/generalConfig.gradle"
+
+android {
+    defaultConfig {
+        applicationId "com.wpy.baseapp"
+    }
+
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+
+    sourceSets {
+        main {
+            // aidl文件的路径，src/main/aidl是默认地址，不配置也一样，支持自定义目录
+            aidl.srcDirs = ['src/main/aidl']
+        }
+    }
+}
+
+dependencies {
+
+    // 引用其他组件 -- 此行勿动 --
+    implementation project(':basicLib:core')
+    implementation project(':basicLib:coil')
+    implementation project(':basicLib:utils')
+    implementation project(':basicLib:arouter')
+
+    implementation project(':basicLib:ui')
+
+    implementation project(':feature:home')
+    implementation project(':feature:me')
+
+    // 官方库 -- 此行勿动 --
+
+    // 三方库 -- 此行勿动 --
+    implementation "${thirdPartyDependence.coil}"
+    kapt "${thirdPartyDependence.arouter_compiler}"
+
+    // 引用单元测试依赖（需要在设备上跑的单元测试代码必须用androidTestImplementation引入） -- 此行勿动 --
+    testImplementation "${officialDependence.junit}"
+    androidTestImplementation "${officialDependence.testJunit}"
+    androidTestImplementation "${officialDependence.espresso}"
+
+    //内存泄漏检测工具
+    debugImplementation "${thirdPartyDependence.leakcanary}"
+}
