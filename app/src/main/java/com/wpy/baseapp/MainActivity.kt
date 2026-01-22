@@ -10,8 +10,8 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.wpy.ui.TabBtnClickCallback
 import com.wpy.arouter.ARouterPath
 import com.wpy.baseapp.databinding.ActivityMainBinding
-import com.wpy.home.page.HomeFragment
-import com.wpy.me.page.MeFragment
+import com.wpy.baseapp.home.page.HomeFragment
+import com.wpy.baseapp.me.page.MeFragment
 import com.wpy.core.mvvm.BaseBVMActivity
 
 

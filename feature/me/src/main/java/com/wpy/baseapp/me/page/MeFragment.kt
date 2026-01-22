@@ -1,7 +1,7 @@
-package com.wpy.me.page
+package com.wpy.baseapp.me.page
 
 import android.os.Bundle
-import com.wpy.me.viewmodel.MeFragmentViewModel
+import com.wpy.baseapp.me.viewmodel.MeFragmentViewModel
 import com.wpy.core.mvvm.BaseBVMFragment
 import com.wpy.me.R
 import com.wpy.me.databinding.FragmentMeBinding

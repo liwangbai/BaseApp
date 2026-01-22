@@ -1,7 +1,7 @@
-package com.wpy.home.page
+package com.wpy.baseapp.home.page
 
 import android.os.Bundle
-import com.wpy.home.viewmodel.HomeFragmentViewModel
+import com.wpy.baseapp.home.viewmodel.HomeFragmentViewModel
 import com.wpy.core.mvvm.BaseBVMFragment
 import com.wpy.home.R
 import com.wpy.home.databinding.FragmentHomeBinding

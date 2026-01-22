@@ -231,3 +231,15 @@ baseapp-template-v1.0
 
 > BaseApp 的价值在于：
 > 每一个新项目，都从一个“已经想清楚结构”的起点开始。
+
+## 九、用此模板项目开始开发
+
+1. Click "Use this template" on GitHub
+2. Create a new repository
+3. Clone the new repository
+4. Update:
+  - settings.gradle -> rootProject.name
+  - app/build.gradle -> applicationId
+  - AndroidManifest.xml -> strings.xml -> app_name
+  - rename package name (All Directories) (optional)
+  - Sync Gradle and start development
