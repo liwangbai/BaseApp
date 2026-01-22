@@ -238,8 +238,8 @@ baseapp-template-v1.0
 2. Create a new repository
 3. Clone the new repository
 4. Update:
-  - rootProject.name
-  - applicationId
-  - app_name
-  - package name (optional)
+  - settings.gradle -> rootProject.name
+  - app/build.gradle -> applicationId
+  - AndroidManifest.xml -> strings.xml -> app_name
+  - rename package name (All Directories) (optional)
   - Sync Gradle and start development

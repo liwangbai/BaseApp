@@ -1,4 +1,4 @@
-package com.wpy.me.viewmodel
+package com.wpy.baseapp.me.viewmodel
 
 import com.wpy.core.mvvm.BaseViewModel
 
