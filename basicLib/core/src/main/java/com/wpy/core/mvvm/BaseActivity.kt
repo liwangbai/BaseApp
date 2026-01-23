@@ -2,12 +2,11 @@ package com.wpy.core.mvvm
 
 import android.graphics.Color
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import androidx.lifecycle.LifecycleOwner
 import com.alibaba.android.arouter.launcher.ARouter
-import com.wpy.core.R
-
 
 /**
  * Created by Li Wangbai.
@@ -43,4 +42,23 @@ abstract class BaseActivity: AppCompatActivity() {
 
     @LayoutRes
     protected abstract fun getLayoutId(): Int
+
+    // onBackPressed()方法过时了，推荐使用onBackPressedDispatcher实现返回动作监听
+    protected fun interceptBack(
+        owner: LifecycleOwner = this,
+        handler: () -> Boolean
+    ) {
+        onBackPressedDispatcher.addCallback(
+            owner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    val consumed = handler()
+                    if (!consumed) {
+                        isEnabled = false
+                        onBackPressedDispatcher.onBackPressed()
+                    }
+                }
+            }
+        )
+    }
 }
