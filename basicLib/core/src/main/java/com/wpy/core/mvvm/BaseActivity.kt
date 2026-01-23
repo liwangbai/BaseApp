@@ -44,7 +44,7 @@ abstract class BaseActivity: AppCompatActivity() {
     protected abstract fun getLayoutId(): Int
 
     // onBackPressed()方法过时了，推荐使用onBackPressedDispatcher实现返回动作监听
-    protected fun interceptBack(
+    protected open fun interceptBack(
         owner: LifecycleOwner = this,
         handler: () -> Boolean
     ) {
